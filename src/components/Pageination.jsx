@@ -5,21 +5,29 @@ function Pageination() {
 
     const{page, handlePageChange, totalPages} = useContext(AppContext);
   return (
-    <div>
-        <div>
+    <div className=' w-full border-2 fixed bottom-0 bg-white  '>
+        <div className=' flex w-11/12 max-w-[670px] justify-between mx-auto py-2'>
+            <div className='flex gap-x-2'>
             { page>1 &&
-                (<button onClick={() => handlePageChange(page-1)}>
+                (<button
+                className='rounded-md border-2 px-4 py-1'
+                onClick={() => handlePageChange(page-1)}>
                     Previous
                 </button>)
             }
 
             { page < totalPages &&
-                (<button onClick={() => handlePageChange(page+1)}>
+                (<button 
+                className='rounded-md border-2 px-4 py-1'
+                onClick={() => handlePageChange(page+1)}>
                     Next
                 </button>)
             }
 
-            <p>
+            </div>
+
+
+            <p className='font-bold text-sm'>
                 Page {page} of {totalPages}
             </p>
         </div>
